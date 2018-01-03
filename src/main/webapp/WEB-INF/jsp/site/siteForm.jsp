@@ -13,7 +13,7 @@
 	<link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 	
-	<link type="text/css" rel="stylesheet" href="<c:url value="../resources/ajoutstyle.css"></c:url>" />
+	<link type="text/css" rel="stylesheet" href="<c:url value="../resources/css/ajoutstyle.css"></c:url>" />
 	
 </head>
 <body style="padding-top: 110px;">
