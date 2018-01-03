@@ -28,9 +28,6 @@ import org.springframework.web.servlet.view.JstlView;
 @PropertySource("classpath:database.properties")
 public class WebConfig implements WebMvcConfigurer {
 	
-	
-	
-	
 	    @Autowired
 	    DataSource dataSource;
 	 

@@ -16,13 +16,13 @@
 	<link type="text/css" rel="stylesheet" href="<c:url value="../resources/css/ajoutstyle.css"></c:url>" />
 	
 </head>
-<body style="padding-top: 110px;">
+<body>
 
      <div class="container">
     	<div class="row">
 			<div class="col-md-12 ">
-				<div class="panel panel-login" style="border-color: #ccc;-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);">
-					<div class="panel-heading" style="color: #00415d;background-color: #fff;border-color: #fff;text-align:center;">
+				<div class="panel panel-login" >
+					<div class="panel-heading" >
 						<div class="col-md-12">
 							<h3> AJOUTER UN NOUVEAU SITE </h3>
 						</div>
@@ -37,25 +37,25 @@
 					            role="form" style="display: block;">
 					            
 					            	<div class="form-group">
-										<input type="text" name="nomSite" id="nomSite" value="" tabindex="1" class="form-control" placeholder="Nom du site" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"/>
+										<input type="text" name="nomSite" id="nomSite" value="" tabindex="1" class="form-control" placeholder="Nom du site" />
 					       			</div>
 					            
 					       			
 									<div class="form-group">
-										<input type="text" name="emplacementSite" id="emplacementSite" value="" tabindex="1" class="form-control" placeholder="Emplacement géographique du site" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"/>
+										<input type="text" name="emplacementSite" id="emplacementSite" value="" tabindex="1" class="form-control" placeholder="Emplacement géographique du site" />
 					       			</div>
 					       			
 					       			<div class="form-group">
-										<input type="text" name="typeSite" id="typeSite" value="" tabindex="1" class="form-control" placeholder="Type du site" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"/>
+										<input type="text" name="typeSite" id="typeSite" value="" tabindex="1" class="form-control" placeholder="Type du site" />
 					       			</div>
 					       			
 					       			<div class="form-group">
-										<input type="text" name="hauteurSite" id="hauteurSite" value="" tabindex="1" class="form-control" placeholder="Hauteur du site" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"/>
+										<input type="text" name="hauteurSite" id="hauteurSite" value="" tabindex="1" class="form-control" placeholder="Hauteur du site" />
 					       			</div>
 					       			<div class="form-group">
 										<div class="row">
 											<div class="col-md-12">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="VALIDER" style="background-color: #59B2E0;" style="background-color: #59B2E0; outline: none;color: #fff;font-size: 14px;height: auto;font-weight: normal;padding: 14px 0;text-transform: uppercase;border-color: #59B2E6;"/>
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="VALIDER" />
 											</div>
 										</div>
 								    </div>
@@ -69,7 +69,7 @@
 	  </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script src="<c:url value="../resources/bootstrap.min.js"> </c:url>"> </script>
+		<script src="<c:url value="../resources/js/bootstrap.min.js"> </c:url>"> </script>
     </body>
 </html>
 
