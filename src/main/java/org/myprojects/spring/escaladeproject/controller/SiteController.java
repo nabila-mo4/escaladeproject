@@ -73,12 +73,22 @@ public class SiteController {
 		
 	}
 	
-	@RequestMapping(value = "/nabila", method = RequestMethod.GET)
-	public String nabila() {
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String accueil() {
 		
-		return  "viewSiteForm";
+		return  "ok";
 		
 	}
+	
+	@RequestMapping(value = "/view/{idsite}", method = RequestMethod.GET)
+	public ModelAndView view(@PathVariable("idsite") int idsite) {
+		ModelAndView model = new ModelAndView("site/viewSiteForm");
+		Site site = siteManager.getById(idsite);
+		model.addObject("siteForm", site);	
+		return model;
+	}
+	
+	
 	
 	
 	}
