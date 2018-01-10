@@ -72,6 +72,15 @@ public class SiteController {
 		return new ModelAndView("redirect:/list");
 		
 	}
+	
+	@RequestMapping(value = "/nabila", method = RequestMethod.GET)
+	public String nabila() {
+		
+		return  "viewSiteForm";
+		
+	}
+	
+	
 	}
 
 

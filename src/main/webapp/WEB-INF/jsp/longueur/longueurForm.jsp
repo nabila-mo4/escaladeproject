@@ -9,7 +9,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Création du secteur</title>
+	<title>Création de la longueur</title>
 	
 	
 	<link rel="stylesheet"
@@ -31,7 +31,7 @@
 				<div class="panel panel-login" style="border-color: #ccc;-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);" >
 					<div class="panel-heading" style="color: #00415d;background-color: #fff;border-color: #fff;text-align:center;" >
 						<div class="col-md-12">
-							<h3> AJOUTER UN NOUVEAU SECTEUR </h3>
+							<h3> AJOUTER UNE NOUVELLE LONGUEUR </h3>
 						</div>
 						<hr>
 					</div>
@@ -40,31 +40,36 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-							<spring:url value="/savesecteur" var="saveUrl"/> 
-     							<form:form modelAttribute="secteurForm" method="post" action="${saveUrl}"> 
+							<spring:url value="/savelongueur" var="saveUrl"/> 
+     							<form:form modelAttribute="longueurForm" method="post" action="${saveUrl}"> 
 					     		
 					     		
-								  <h4> Le secteur en question appartient au site:</h4>
-								  <form:select path="site.idsite" tabindex="1" class="form-control" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" >
+								  <h4> Le longueur en question appartient à la voie:</h4>
+								  <form:select path="voie.idvoie" tabindex="1" class="form-control" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" >
    									 
-   									 <form:options items="${sites}" itemValue="idsite" itemLabel="nom"  />
+   									 <form:options items="${voies}" itemValue="idvoie" itemLabel="nom"  />
 									
 								  </form:select>
 								  <br>
    
 								  				            					          
 					            
-					             <form:hidden path="idsecteur"/>
+					             <form:hidden path="idlongueur"/>
 					            
 					            	<div class="form-group">
-										<form:input path="nom" type="text" tabindex="1" class="form-control" placeholder="Nom du secteur" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" />
+										<form:input path="nomrelais" type="text" tabindex="1" class="form-control" placeholder="Nom du relais" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" />
 					       			</div>
+					       			
+					       			<div class="form-group">
+										<form:input path="cotation" type="text" tabindex="1" class="form-control" placeholder="Cotation de la longueur" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" />
+					       			</div>
+					            
 					            
 					       			
 									
 					       			
 					       			<div class="form-group">
-										<form:input path="hauteur" type="text" tabindex="1" class="form-control" placeholder="Hauteur du secteur" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"/>
+										<form:input path="hauteur" type="text" tabindex="1" class="form-control" placeholder="Hauteur de la longueur" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"/>
 					       			</div>
 					       			
 					       			 
