@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head> 
-        <title>Liste des sites</title>
+        <title>Liste des voies</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
         <!-- <link type="text/css" rel="stylesheet" href="<c:url value="/css/listestyle.css"></c:url>" /> -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'/>
@@ -20,10 +20,10 @@
               			<div class="panel-heading" style="background-color= white;padding:10px 15px;border-bottom:1px solid transparent;border-top-left-radius:3px;border-top-right-radius:3px">
                 			<div class="row">
                   				<div class="col-md-12 text-center">
-                    				<h2 class="panel-title" style=" margin-top:0;margin-bottom:0;font-size:20px;color:inherit">LA LISTE DES SITES</h2>
+                    				<h2 class="panel-title" style=" margin-top:0;margin-bottom:0;font-size:20px;color:inherit">LA LISTE DES VOIES</h2>
                   				</div>
                   				<div class="row">
-                  					<div class=" col-md-11 offset-md-1 text-right"><a href="<c:url value="/add"/>" class="btn btn-sm btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff; ">Creer un nouveau site</a>
+                  					<div class=" col-md-11 offset-md-1 text-right"><a href="<c:url value="/addvoie"/>" class="btn btn-sm btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff; ">Creer une nouvelle voie</a>
                     				</div>
                     			</div>
                   			</div>
@@ -35,27 +35,34 @@
                   					<thead>
                     						<tr >
                        							 <th class="text-center">Action</th>
+                       							 <th>Secteur </th>
                        							 <th> Nom </th>
-                        						 <th>Emplacement geographique</th>
-                       						     <th>Type </th>
+                        						 <th> Nom de la hauteur</th>
 												 <th>Hauteur </th>
-												 <th>Commentaire </th>
+												 <th> Nombre de  points </th>
+												 <th>Etat </th>
                   							</tr> 
                  				    </thead>
                   					<tbody>
-                  						<c:forEach items="${sites}" var="listeSites">
+                  						<c:forEach items="${voies}" var="listeVoies">
                   						
                          					 <tr>
                             					 <td align="center">
-                            					 <a href = "<c:url value = "/update/${listeSites.idsite }"/>" class="btn btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff;"><em class="fa fa-pencil"></em></a>
-                            				     <a href = "<c:url value = "/delete/${listeSites.idsite }"/>" class="btn btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff;"><em class="fa fa-trash"></em></a>
+                            					 <a href = "<c:url value = "/updatevoie/${listeVoies.idvoie }"/>" class="btn btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff;"><em class="fa fa-pencil"></em></a>
+                            				     <a href = "<c:url value = "/deletevoie/${listeVoies.idvoie }"/>" class="btn btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff;"><em class="fa fa-trash"></em></a>
                              						
                            						 </td>
-                           						 <td ><c:out value="${listeSites.nom }"></c:out></td>
-                            				     <td ><c:out value="${listeSites.emplacement}"></c:out></td>
-                          					     <td ><c:out value="${listeSites.type}"></c:out></td>
-                          					     <td ><c:out value="${listeSites.hauteur}"></c:out></td>
-                          					     <td> <a href="<c:url value = "/addcommentaire/${listeSites.idsite }"/>">Laissez un commentaire</a> </td>
+                           						 <td ><c:out value="${listeVoies.secteur.idsecteur}"></c:out></td>
+                           						 
+                           						 <td ><c:out value="${listeVoies.nom }"></c:out></td>
+                           						  <td ><c:out value="${listeVoies.nomhauteurvoie }"></c:out></td>
+                            				      <td ><c:out value="${listeVoies.hauteur }"></c:out></td>
+                            				      <td ><c:out value="${listeVoies.nbpoints }"></c:out></td>
+                            				      <td ><c:out value="${listeVoies.etat }"></c:out></td>
+                            				    
+                            				     
+                            				     
+                          					    
 												 
                           					</tr>
                           				</c:forEach>

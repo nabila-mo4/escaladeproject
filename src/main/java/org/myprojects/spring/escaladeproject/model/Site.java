@@ -1,6 +1,7 @@
 package org.myprojects.spring.escaladeproject.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Site implements Serializable{
 
@@ -15,8 +16,15 @@ public class Site implements Serializable{
 	private String type;
 	private int hauteur;
 	private int idsite;
+	private List<Secteur> secteur;
 	
 	
+	public List<Secteur> getSecteur() {
+		return secteur;
+	}
+	public void setSecteur(List<Secteur> secteur) {
+		this.secteur = secteur;
+	}
 	public Site() {
 		super();
 	}

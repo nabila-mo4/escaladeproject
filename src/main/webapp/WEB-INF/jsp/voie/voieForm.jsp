@@ -9,7 +9,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Création du site</title>
+	<title>Création de la voie</title>
 	
 	
 	<link rel="stylesheet"
@@ -19,42 +19,72 @@
 	
 </head>
 <body >
-<c:import url="/menu.jsp"></c:import>
 
-<div class="container" style="padding-top:100px">
+<br>
+
+
+	<c:import url="/menu.jsp"/>
+	<div class="container" style="padding-top:100px">
     	<div class="row">
 			<div class="col-md-12 ">
 				<div class="panel panel-login" style="border-color: #ccc;-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);" >
 					<div class="panel-heading" style="color: #00415d;background-color: #fff;border-color: #fff;text-align:center;" >
 						<div class="col-md-12">
-							<h3> AJOUTER UN NOUVEAU SITE </h3>
+							<h3> AJOUTER UNE NOUVELLE VOIE </h3>
 						</div>
 						<hr>
 					</div>
+					
+					
+
+
+             
+                    
+                    
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-							<spring:url value="/save" var="saveUrl"/> 
-     							<form:form modelAttribute="siteForm" method="post" action="${saveUrl}"> 
+							<spring:url value="/savevoie" var="saveUrl"/> 
+     							<form:form modelAttribute="voieForm" method="post" action="${saveUrl}"> 
 					     		
-					            <form:hidden path="idsite"/>
+					     		
+								  <h4> La voie en question appartient au secteur:</h4>
+								  <form:select path="secteur.idsecteur" tabindex="1" class="form-control" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" >
+   									 
+   									 <form:options items="${secteurs}" itemValue="idsecteur" itemLabel="nom"  />
+									
+								  </form:select>
+								  <br>
+   
+								  				            					          
+					            
+					             <form:hidden path="idvoie"/>
 					            
 					            	<div class="form-group">
-										<form:input path="nom" type="text" tabindex="1" class="form-control" placeholder="Nom du site" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" />
+										<form:input path="nom" type="text" tabindex="1" class="form-control" placeholder="Nom de la voie" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" />
+					       			</div>
+					            
+					            	
+					            	<div class="form-group">
+										<form:input path="nomhauteurvoie" type="text" tabindex="1" class="form-control" placeholder="Nom de la hauteur de la voie" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" />
 					       			</div>
 					            
 					       			
-									<div class="form-group">
-										<form:input path="emplacement" type="text"  tabindex="1" class="form-control" placeholder="Emplacement géographique du site" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"/>
+									
+					       			
+					       			<div class="form-group">
+										<form:input path="hauteur" type="text" tabindex="1" class="form-control" placeholder="Hauteur de la voie" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"/>
 					       			</div>
 					       			
 					       			<div class="form-group">
-										<form:input path="type" type="text" tabindex="1" class="form-control" placeholder="Type du site" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"/>
+										<form:input path="nbpoints" type="text" tabindex="1" class="form-control" placeholder="Nombre de points de la voie" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" />
 					       			</div>
 					       			
 					       			<div class="form-group">
-										<form:input path="hauteur" type="text" tabindex="1" class="form-control" placeholder="Hauteur du site" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"/>
+										<form:input path="etat" type="text" tabindex="1" class="form-control" placeholder="Etat de la voie" style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" />
 					       			</div>
+					            
+					            
 					       			
 					       			 
 					       			<div class="form-group">
@@ -71,8 +101,7 @@
 			    </div>
 			</div>
 	    </div>
-	  </div>
-		
+	  </div>	
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 		
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 

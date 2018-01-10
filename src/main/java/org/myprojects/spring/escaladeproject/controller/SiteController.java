@@ -12,27 +12,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 @Controller
-//@RequestMapping(value="/site")
+
 public class SiteController {
 	
 	@Autowired
 	SiteManager siteManager;
 	
+	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView add() {
 		ModelAndView model = new ModelAndView("site/siteForm");
 		Site site = new Site();
-		model.addObject("siteForm", site);	
+		model.addObject("siteForm", site);
+	
 		return model;
 	}
-	@RequestMapping(value="/save", method=RequestMethod.POST)
+	@RequestMapping(value="/savesite", method=RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("siteForm") Site site){
 		if(site!=null && site.getIdsite()!=0) {
 			siteManager.update(site);
 		}
 		else {
+			
 			siteManager.create(site);
+			
 		}
+		
+		
 		return new ModelAndView("redirect:/list");
 		
 	}
