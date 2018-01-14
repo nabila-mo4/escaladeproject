@@ -7,6 +7,8 @@ public class Site implements Serializable{
 
 	private String nom;
 	private String emplacement;
+	
+	
 	public String getEmplacement() {
 		return emplacement;
 	}

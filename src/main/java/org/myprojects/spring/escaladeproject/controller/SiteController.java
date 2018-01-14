@@ -1,6 +1,10 @@
 package org.myprojects.spring.escaladeproject.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 import org.myprojects.spring.escaladeproject.business.contract.manager.SiteManager;
 import org.myprojects.spring.escaladeproject.model.Site;
@@ -10,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 @Controller
 
@@ -89,9 +94,25 @@ public class SiteController {
 	}
 	
 	
-	
-	
+
+/*	@RequestMapping(value = "nabilasave", method = RequestMethod.POST)
+	public ModelAndView view(@RequestParam("siteName") String siteName) {
+		Hashtable criterias = new Hashtable();
+        criterias.put("site-name",siteName);
+		ModelAndView model = new ModelAndView("nabilasearch");
+		List<Site> list= siteManager.search(criterias);
+		model.addObject("sites", list);	
+		return model;
 	}
+	
+	@RequestMapping(value = "nabilaaa", method = RequestMethod.GET)
+	public String nbaila() {
+		return "nabilasearch";
+	}
+	}*/
+	
+	
+}
 
 
 

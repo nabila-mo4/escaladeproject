@@ -1,5 +1,6 @@
 package org.myprojects.spring.escaladeproject.business.contract.manager;
 
+import java.util.Hashtable;
 import java.util.List;
 
 import org.myprojects.spring.escaladeproject.model.Site;
@@ -17,6 +18,8 @@ void create(Site site);
     List<Site> list();
     
     void update(Site site);
+    
+    List<Site> search(Hashtable criterias);
 
 
 }

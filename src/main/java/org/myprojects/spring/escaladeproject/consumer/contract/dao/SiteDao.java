@@ -19,6 +19,8 @@ void create( Site site);
     
     void update(Site site);
     
+    List<Site> findAllBySearchCriteria(String sqlStatement);
+    
    
 
 }

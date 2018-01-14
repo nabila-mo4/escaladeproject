@@ -29,28 +29,32 @@
 					<div class="panel-heading" style="color: #00415d;background-color: #fff;border-color: #fff;text-align:center;" >
 						<div class="col-md-12">
 							<h3> LES INFORMATIONS DU SITE </h3>
+							
 						</div>
+						<div class=" col-md-12 text-right"><a href="" style="text-align: left">Vous avez un avis à partager sur ce site, c'est par ici ...</a></div>
 						<hr>
 					</div>
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-lg-12">
+							<div class=" col-lg-8 col-lg-offset-2 col-lg-offset-2">
 							
 					            	<div class="form-group">
-										<label for="nom"  tabindex="1" class="form-control"  style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" > ${siteForm.nom } </label>
+					            	
+									<h5>Nom du site </h5>	<label for="nom"  tabindex="1" class="form-control"  style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;" > ${siteForm.nom } </label>
+									
 					       			</div>
 					            
 					       			
 									<div class="form-group">
-										<label for="emplacement"   tabindex="1" class="form-control"  style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;">${siteForm.emplacement } </label>
+									<h5>Emplacement géographique du site</h5>	<label for="emplacement"   tabindex="1" class="form-control"  style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;">${siteForm.emplacement } </label>
 					       			</div>
 					       			
 					       			<div class="form-group">
-										<label for="type"  tabindex="1" class="form-control"  style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"> ${siteForm.type } </label>
+									<h5>Type du site</h5>	<label for="type"  tabindex="1" class="form-control"  style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"> ${siteForm.type } </label>
 					       			</div>
 					       			
 					       			<div class="form-group">
-										<label for="hauteur"  tabindex="1" class="form-control"  style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"> $ {siteForm.hauteur}</label>
+									<h5> Hauteur du site</h5>	<label for="hauteur"  tabindex="1" class="form-control"  style="height: 45px;border: 1px solid #ddd;font-size: 16px;-webkit-transition: all 0.1s linear;-moz-transition: all 0.1s linear;transition: all 0.1s linear;"> ${siteForm.hauteur}</label>
 					       			</div>
 					       			
 					       			 

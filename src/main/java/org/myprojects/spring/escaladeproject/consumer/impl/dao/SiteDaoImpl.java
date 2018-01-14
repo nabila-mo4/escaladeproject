@@ -42,6 +42,11 @@ public class SiteDaoImpl implements SiteDao{
 			List<Site> list = namedParameterJdbcTemplate.query(sql, getSqlParameterByModel(null), new SiteMapper());
 			return list;
 		}
+		
+		public List<Site> findAllBySearchCriteria(String sqlStatement){
+			List<Site> list= namedParameterJdbcTemplate.query(sqlStatement, getSqlParameterByModel(null), new SiteMapper());
+	        return list;
+	    }
 		SqlParameterSource paramSource;
 		
 		

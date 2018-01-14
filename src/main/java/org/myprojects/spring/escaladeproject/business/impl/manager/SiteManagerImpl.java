@@ -1,6 +1,8 @@
 package org.myprojects.spring.escaladeproject.business.impl.manager;
 
-import java.util.List;
+import java.util.*;
+
+
 
 
 import org.myprojects.spring.escaladeproject.business.contract.manager.SiteManager;
@@ -40,7 +42,51 @@ public class SiteManagerImpl implements SiteManager {
 		siteDao.update(site);
 		
 	}
-
-
-
+	
+	public List<Site> search(Hashtable criterias)
+    {
+        
+            String sqlStatement = "SELECT * FROM site WHERE";
+			List<String> sqlCriterias= new ArrayList<>();
+            List<Site> sites = new ArrayList<Site>();
+            Enumeration enumCriteria = criterias.keys();
+			while (enumCriteria.hasMoreElements()) {
+                String key = (String) enumCriteria.nextElement();
+				if(criterias.containsKey("site-name") && key.equals("site-name") && !criterias.get(key).equals(""))
+                {
+                    String siteName = (String) criterias.get(key);
+                    String siteNameCap = siteName.substring(0, 1).toUpperCase() + siteName.toLowerCase().substring(1);
+                    sqlCriterias.add(" nom LIKE '%"+siteName+"%' OR nom LIKE '%"+siteName.toLowerCase()+"%' OR nom LIKE '%"+siteName.toUpperCase()+"%' OR nom LIKE '%"+siteNameCap+"%'") ;
+                }
+					
+					
+					
+				if(criterias.containsKey("site-emplacement") && key.equals("site-emplacement") && !criterias.get(key).equals(""))
+                {
+                    String siteEmplacement = (String) criterias.get(key);
+                    String siteEmplacementCap = siteEmplacement.substring(0, 1).toUpperCase() + siteEmplacement.toLowerCase().substring(1);
+                    sqlCriterias.add(" (emplacementgeo LIKE '%"+siteEmplacement+"%' OR emplacementgeo LIKE '%"+siteEmplacement.toLowerCase()+"%' OR emplacementgeo LIKE '%"+siteEmplacement.toUpperCase()+"%' OR emplacementgeo LIKE '%"+siteEmplacementCap+"%')") ;
+                }
+				
+				
+				for(String sqlCriteria : sqlCriterias)
+                {
+                   // System.out.println(sqlCriteria);
+                    sqlStatement = sqlStatement + sqlCriteria;
+                    if(!sqlCriteria.equals(sqlCriterias.get(sqlCriterias.size()-1)))
+                    {
+                        sqlStatement += " AND ";
+                    }
+                }
+				
+				sites = siteDao.findAllBySearchCriteria(sqlStatement);
+				
+				return sites;
+			}
+			return sites;
+    }
 }
+
+
+
+
