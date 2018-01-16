@@ -3,6 +3,7 @@ package org.myprojects.spring.escaladeproject.consumer.contract.dao;
 import java.util.List;
 
 import org.myprojects.spring.escaladeproject.model.Secteur;
+import org.myprojects.spring.escaladeproject.model.Site;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -17,5 +18,7 @@ public interface SecteurDao {
     List<Secteur> list();
     
     void update(Secteur secteur);
+    
+    List<Secteur> findAllBySite(Site site);
 
 }

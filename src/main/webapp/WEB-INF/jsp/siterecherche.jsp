@@ -1,20 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-     isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
- <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"   isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
-    <head> 
-        <title>Liste des sites</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-        <!-- <link type="text/css" rel="stylesheet" href="<c:url value="/css/listestyle.css"></c:url>" /> -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'/>
-    </head>
-    
-   
-    <c:import url="/menu.jsp"></c:import>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Liste des sites</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'/>
+</head>
+
+	<c:import url="/menu.jsp"></c:import>
     <body style="padding-top: 100px;">
     
     <div class="container">
@@ -50,21 +52,27 @@
                                     <input class="form-control" name="siteMax" style=" border-top-left-radius: 4px; border-bottom-left-radius: 4px;"type="text" />
                                   </div>
                                  
-                                  <button type="submit" class="btn btn-primary" style="background-color: #007bff; border-color: #007bff"
- ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                  <button type="submit" class="btn btn-primary" style="background-color: #007bff; border-color: #007bff"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                                 </form:form>
+                                
+                               
                             </div>
+                           
                         </div>
-                        
+                         
                   
                     </div>
                 </div>
+                  
             </div>
           </div>
          
         </div>
        
 	</div>
+	
+
+
 		<div class="container" style="padding-top: 20px">
     		<div class="row">
     			<div class="col-md-12">
@@ -76,7 +84,8 @@
                   				</div>
                   				<div class="row">
                   					<div class=" col-md-11 offset-md-1 text-right"><a href="<c:url value="/add"/>" class="btn btn-sm btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff; ">Creer un nouveau site</a>
-                    				</div>
+                    				<a href="<c:url value="/listsite"/>" class="btn btn-sm btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff; ">Voir la liste de tous les sites</a></div>
+                    				
                     			</div>
                   			</div>
                 		</div>
@@ -123,7 +132,7 @@
 	
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
-<!--  <script src="js/jquery-2.1.1.min.js"> </script> -->
-<!--  <script src="js/bootstrap.min.js"> </script> -->
+	
 </body>
 </html>
+

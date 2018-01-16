@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.myprojects.spring.escaladeproject.consumer.contract.dao.SiteDao;
+import org.myprojects.spring.escaladeproject.model.Secteur;
 import org.myprojects.spring.escaladeproject.model.Site;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -21,7 +22,7 @@ public class SiteDaoImpl implements SiteDao{
 		
 		
 		public void create(Site site) {
-			String sql="INSERT INTO site (nom,emplacement,hauteur,type) VALUES (:nom,:emplacement,:hauteur,:type)";
+			String sql="INSERT INTO site (nomsite,emplacement,hauteur,type) VALUES (:nomsite,:emplacement,:hauteur,:type)";
 			namedParameterJdbcTemplate.update(sql, getSqlParameterByModel(site));	
 		}
 
@@ -37,7 +38,8 @@ public class SiteDaoImpl implements SiteDao{
 		}
 
 		public List<Site> list() {
-			String sql ="SELECT idsite,nom,emplacement,hauteur,type FROM site";
+			String sql ="SELECT * FROM site ";
+			
 			
 			List<Site> list = namedParameterJdbcTemplate.query(sql, getSqlParameterByModel(null), new SiteMapper());
 			return list;
@@ -47,6 +49,8 @@ public class SiteDaoImpl implements SiteDao{
 			List<Site> list= namedParameterJdbcTemplate.query(sqlStatement, getSqlParameterByModel(null), new SiteMapper());
 	        return list;
 	    }
+		
+		
 		SqlParameterSource paramSource;
 		
 		
@@ -63,7 +67,7 @@ public class SiteDaoImpl implements SiteDao{
 			MapSqlParameterSource paramSource = new MapSqlParameterSource ();
 			if(site !=null) {
 				paramSource.addValue("idsite", site.getIdsite());
-				paramSource.addValue("nom", site.getNom());
+				paramSource.addValue("nomsite", site.getNom());
 				paramSource.addValue("emplacement", site.getEmplacement());
 				paramSource.addValue("hauteur", site.getHauteur());
 				paramSource.addValue("type", site.getType());
@@ -78,7 +82,7 @@ public class SiteDaoImpl implements SiteDao{
 				Site site = new Site();
 				site.setIdsite(rs.getInt("idsite"));
 				site.setEmplacement(rs.getString("emplacement"));
-				site.setNom(rs.getString("nom"));
+				site.setNom(rs.getString("nomsite"));
 				site.setHauteur(rs.getInt("hauteur"));
 				site.setType(rs.getString("type"));
 				return site;

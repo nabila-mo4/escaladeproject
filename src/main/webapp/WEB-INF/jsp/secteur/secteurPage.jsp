@@ -36,6 +36,7 @@
                     						<tr >
                        							 <th class="text-center">Action</th>
                        							 <th>Site </th>
+                       							 
                        							 <th> Nom </th>
                         						
 												 <th>Hauteur </th>
@@ -50,7 +51,9 @@
                             				     <a href = "<c:url value = "/deletesecteur/${listeSecteurs.idsecteur }"/>" class="btn btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff;"><em class="fa fa-trash"></em></a>
                              						
                            						 </td>
-                           						 <td ><c:out value="${listeSecteurs.site.idsite }"></c:out></td>
+                           						 
+                           						 
+                           						  <td ><c:out value="${listeSecteurs.site.nom }"></c:out></td>
                            						 
                            						 <td ><c:out value="${listeSecteurs.nom }"></c:out></td>
                             				     

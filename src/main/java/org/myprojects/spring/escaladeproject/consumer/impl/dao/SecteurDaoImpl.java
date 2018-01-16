@@ -39,7 +39,10 @@ public class SecteurDaoImpl implements SecteurDao {
 	}
 
 	public List<Secteur> list() {
-		String sql ="SELECT idsecteur,nom,hauteur,idsite FROM secteur";
+		String sql ="SELECT secteur.*, site.nomsite FROM secteur LEFT JOIN site ON secteur.idsite=site.idsite";
+		
+		
+		
 		
 		List<Secteur> list = namedParameterJdbcTemplate.query(sql, getSqlParameterByModel(null), new SecteurMapper());
 		return list;
@@ -50,6 +53,28 @@ public class SecteurDaoImpl implements SecteurDao {
 		namedParameterJdbcTemplate.update(sql, getSqlParameterByModelone(secteur));
 		
 	}
+	
+	public List<Secteur> findAllBySite(Site site){
+		System.out.println("1");
+		String sql="SELECT * FROM secteur WHERE 1=1";
+        
+        if(site != null)
+        {
+        	System.out.println("2");
+            if(site.getIdsite()!=0)
+            {
+            	System.out.println(site.getIdsite());
+            	sql+="AND idsite=:idsite";
+            	System.out.println("3");
+                
+               
+            }
+        }
+        List<Secteur> list = namedParameterJdbcTemplate.query(sql, getSqlParameterByModel(new Secteur()), new SecteurMapper());
+     
+        System.out.println("4");
+        return list;
+    }
 	
 	
 
@@ -95,8 +120,12 @@ public class SecteurDaoImpl implements SecteurDao {
 			
 			Site site= new Site();
 			site.setIdsite(rs.getInt("idsite"));
-			secteur.setSite(site);
+			//secteur.setSite(site);
 		
+			
+			/*site.setNom(rs.getString("nomsite"));
+			secteur.setSite(site);*/
+
 			
 			return secteur;
 		}

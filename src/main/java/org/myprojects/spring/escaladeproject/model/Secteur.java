@@ -1,6 +1,7 @@
 package org.myprojects.spring.escaladeproject.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -11,13 +12,14 @@ public class Secteur implements Serializable {
 	private int hauteur;
 	private int idsecteur;
 	private Site site;
-	private List<Voie> voie;
 	
-	public List<Voie> getVoie() {
-		return voie;
+	private List<Voie> voies = new ArrayList<Voie>();;
+	
+	public List<Voie> getVoies() {
+		return voies;
 	}
-	public void setVoie(List<Voie> voie) {
-		this.voie = voie;
+	public void setVoies(List<Voie> voies) {
+		this.voies = voies;
 	}
 	public String getNom() {
 		return nom;

@@ -1,7 +1,10 @@
 package org.myprojects.spring.escaladeproject.model;
 
 import java.io.Serializable;
+
+import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public class Site implements Serializable{
 
@@ -18,14 +21,32 @@ public class Site implements Serializable{
 	private String type;
 	private int hauteur;
 	private int idsite;
-	private List<Secteur> secteur;
+	
+	private List<Secteur> secteurs = new ArrayList<Secteur>();
+	
+	public boolean equals(Object obj) {
+	       if (!(obj instanceof Site))
+	            return false;
+	        if (obj == this)
+	            return true;
+
+	        Site site = (Site) obj;
+	        return new EqualsBuilder().
+	            // if deriving: appendSuper(super.equals(obj)).
+	            append(nom, site.nom).
+	            append(emplacement, site.emplacement).
+	            append(hauteur, site.hauteur).
+	            isEquals();
+	    }
 	
 	
-	public List<Secteur> getSecteur() {
-		return secteur;
+	
+	
+	public List<Secteur> getSecteurs() {
+		return secteurs;
 	}
-	public void setSecteur(List<Secteur> secteur) {
-		this.secteur = secteur;
+	public void setSecteurs(List<Secteur> secteurs) {
+		this.secteurs = secteurs;
 	}
 	public Site() {
 		super();

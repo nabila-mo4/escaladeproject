@@ -32,7 +32,7 @@ public class SiteController {
 	
 		return model;
 	}
-	@RequestMapping(value="/savesite", method=RequestMethod.POST)
+	@RequestMapping(value="/save", method=RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("siteForm") Site site){
 		if(site!=null && site.getIdsite()!=0) {
 			siteManager.update(site);
@@ -95,13 +95,22 @@ public class SiteController {
 	
 	
 
-/*	@RequestMapping(value = "nabilasave", method = RequestMethod.POST)
-	public ModelAndView view(@RequestParam("siteName") String siteName) {
+	@RequestMapping(value = "recherchesave", method = RequestMethod.POST)
+	public ModelAndView view(@RequestParam("siteName") String siteName,
+			@RequestParam("siteEmplacement") String siteEmplacement,
+			
+			@RequestParam("siteMin") String siteMin,
+			@RequestParam("siteMax") String siteMax) {
 		Hashtable criterias = new Hashtable();
         criterias.put("site-name",siteName);
-		ModelAndView model = new ModelAndView("nabilasearch");
+        criterias.put("site-emplacement",siteEmplacement);
+        criterias.put("criteria-min",siteMin);
+        
+        criterias.put("criteria-max",siteMax);
+		ModelAndView model = new ModelAndView("siterecherche");
 		List<Site> list= siteManager.search(criterias);
 		model.addObject("sites", list);	
+		
 		return model;
 	}
 	
@@ -109,10 +118,16 @@ public class SiteController {
 	public String nbaila() {
 		return "nabilasearch";
 	}
-	}*/
 	
 	
-}
+	@RequestMapping(value = "never", method = RequestMethod.GET)
+	public String nbai() {
+		return "searchsnip";
+	}
+	}
+	
+	
+
 
 
 
