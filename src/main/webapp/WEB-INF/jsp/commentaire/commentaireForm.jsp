@@ -40,12 +40,13 @@
 
              
                     
-                    
+                  
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
 							<spring:url value="/savecommentaire" var="saveUrl"/> 
-     							<form:form modelAttribute="commentaireForm" method="post" action="${saveUrl}"> 
+							 <form:form modelAttribute="commentaireForm" method="post" action="${saveUrl}"> 
+     							
 					     		
 					     		
 								  <h4> Le commentaire en question appartient au site:</h4>
@@ -79,7 +80,9 @@
 											</div>
 										</div>
 								    </div>
-					          </form:form>  
+								    
+								    </form:form> 
+					        
 					       </div>
 					    </div>
 					</div>

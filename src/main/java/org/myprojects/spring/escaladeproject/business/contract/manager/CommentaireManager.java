@@ -14,7 +14,7 @@ public interface CommentaireManager {
     
     //Secteur getById(int idsecteur);
     
-    List<Commentaire> list(int idsite);
+    List<Commentaire> findAllBySite(int idsite);
     
    // void update(Secteur secteur);
 

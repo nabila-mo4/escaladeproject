@@ -24,15 +24,15 @@
     
     <div class="container" style="padding-top:100px">
     	<div class="row">
-			<div class="col-md-12 ">
+			<div class="col-md-offset-3 col-md-6 col-md-offset-3">
 				<div class="panel panel-login" style="border-color: #ccc;-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);" >
 					<div class="panel-heading" style="color: #00415d;background-color: #fff;border-color: #fff;text-align:center;" >
 						<div class="col-md-12">
 							<h3> LES INFORMATIONS DU SITE </h3>
 							
 						</div>
-						<div class=" col-md-12 text-right"><a href="" style="text-align: left">Vous avez un avis à partager sur ce site, c'est par ici ...</a></div>
-						<hr>
+						
+						
 					</div>
 					<div class="panel-body">
 						<div class="row">
@@ -62,13 +62,71 @@
 					          
 					       </div>
 					    </div>
+					    <div class=" col-md-12 text-center"><a href="" style="text-align: left; color: #007bff;">Vous avez un avis à partager sur ce site, c'est par ici ...</a></div>
 					</div>
 					
 					
 			    </div>
 			</div>
+			
+			<div class="comments-container"  class=" col-md-12">
+		<h3>Les commentaires</h3>
+		
+
+		
+			
+				<div class="comment-main-level">
+					
+					
+					
+					<div class="comment-box" >
+					<c:forEach items="${comments}" var="listeComments">
+						<div class="comment-head" style="background: #FCFCFC;
+	padding: 10px 12px;
+	border-bottom: 1px solid #E5E5E5;
+	overflow: hidden;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;">
+	
+							<h6 class="comment-name" style="color: #283035;
+	font-size: 14px;
+	font-weight: 700;
+	float: left;
+	margin-right: 10px;"><c:out value="${listeComments.nomutilisateur }"></c:out></h6>
+	
+	
+							
+							
+						
+						<span style="float: left;
+	color: #999;
+	font-size: 13px;
+	position: relative;
+	top: 1px;">hace 20 minutos</span>
+	</div>
+	
+	<div class="comment-content" style="background: #FFF;
+	
+	padding: 12px;
+	font-size: 15px;
+	color: #595959;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;"> <c:out value="${listeComments.contenu}" ></c:out>
+							
+						</div>
+</c:forEach>
+						</div>
+						
+					</div>
+				</div>
+				
+		
+		
+	</div>
 	    </div>
-	  </div>
+	  
 </body>
 </html>
     

@@ -1,7 +1,10 @@
 package org.myprojects.spring.escaladeproject.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import org.apache.taglibs.standard.extra.spath.ParseException;
 import org.myprojects.spring.escaladeproject.business.contract.manager.CommentaireManager;
 import org.myprojects.spring.escaladeproject.business.contract.manager.SecteurManager;
 import org.myprojects.spring.escaladeproject.business.contract.manager.SiteManager;
@@ -23,19 +26,22 @@ public class CommentaireController {
 	
 	@Autowired
 	CommentaireManager commentaireManager;
-	
 	@Autowired
 	SiteManager siteManager;
 	
 	
+	
+	
 	@RequestMapping(value = "/addcommentaire", method = RequestMethod.GET)
 	public ModelAndView add() {
+
 		ModelAndView model = new ModelAndView("commentaire/commentaireForm");
 		
 		Commentaire commentaire = new Commentaire();
 		
 		
 		model.addObject("commentaireForm", commentaire);
+		
 		
 	
 		List<Site> list= siteManager.list();
@@ -54,9 +60,9 @@ public class CommentaireController {
 		else {*/
 		
 			commentaireManager.create(commentaire);
-			//}
+			
 		
-		return new ModelAndView("redirect:/listsite");
+		return new ModelAndView("redirect:/list");
 		
 	}
 	
@@ -109,8 +115,8 @@ public class CommentaireController {
 	@RequestMapping(value = "/listsite", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView model = new ModelAndView("site/sitePage");
-		List<Site> list= siteManager.list();
-		model.addObject("sites", list);	
+		//List<Site> list= siteManager.list();
+		//model.addObject("sites", list);	
 		return model;
 
 		

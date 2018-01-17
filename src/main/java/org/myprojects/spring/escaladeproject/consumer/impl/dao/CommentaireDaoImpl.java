@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.myprojects.spring.escaladeproject.consumer.contract.dao.CommentaireDao;
 import org.myprojects.spring.escaladeproject.consumer.impl.dao.SecteurDaoImpl.SecteurMapper;
+import org.myprojects.spring.escaladeproject.consumer.impl.dao.SiteDaoImpl.SiteMapper;
 import org.myprojects.spring.escaladeproject.model.Commentaire;
 import org.myprojects.spring.escaladeproject.model.Secteur;
 import org.myprojects.spring.escaladeproject.model.Site;
@@ -32,13 +33,15 @@ public class CommentaireDaoImpl implements CommentaireDao{
 		
 	}
 
-	public List<Commentaire> list(int idsite) {
+	
+	
+	public List<Commentaire> findAllBySite(int idsite){
 		
-		String sql ="SELECT idcommentaire,nomutilisateur,contenu,idsite FROM commentaire WHERE idsite=:idsite";
-		
-		List<Commentaire> list = namedParameterJdbcTemplate.query(sql, getSqlParameterByModel(null), new CommentaireMapper());
+		String sql="SELECT * FROM commentaire WHERE idsite=:idsite ";
+		List<Commentaire> list = namedParameterJdbcTemplate.query(sql, getSqlParameterByModel(new Site(idsite)), new CommentaireMapper());
 		return list;
 	}
+	
 	
 	public NamedParameterJdbcTemplate getNamedParameterJdbcTemplate() {
 		return namedParameterJdbcTemplate;
@@ -54,6 +57,17 @@ public class CommentaireDaoImpl implements CommentaireDao{
 			paramSource.addValue("contenu", commentaire.getContenu());
 			
 		    paramSource.addValue("idsite", commentaire.getSite());
+		}
+		return paramSource;
+	}
+	
+	
+	public SqlParameterSource getSqlParameterByModel(Site site) {
+		MapSqlParameterSource paramSource = new MapSqlParameterSource ();
+		if(site!=null) {
+			
+			
+		    paramSource.addValue("idsite", site.getIdsite());
 		}
 		return paramSource;
 	}

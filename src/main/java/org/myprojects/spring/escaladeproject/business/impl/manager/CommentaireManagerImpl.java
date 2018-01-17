@@ -21,8 +21,9 @@ public class CommentaireManagerImpl implements CommentaireManager{
 		
 	}
 
-	public List<Commentaire> list(int idsite) {
-		return commentaireDao.list(idsite);
+	public List<Commentaire> findAllBySite(int idsite) {
+		return commentaireDao.findAllBySite(idsite);
 	}
+
 
 }

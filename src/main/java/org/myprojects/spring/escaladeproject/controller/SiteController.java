@@ -6,7 +6,9 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
+import org.myprojects.spring.escaladeproject.business.contract.manager.CommentaireManager;
 import org.myprojects.spring.escaladeproject.business.contract.manager.SiteManager;
+import org.myprojects.spring.escaladeproject.model.Commentaire;
 import org.myprojects.spring.escaladeproject.model.Site;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,9 @@ public class SiteController {
 	
 	@Autowired
 	SiteManager siteManager;
+	
+	@Autowired
+	CommentaireManager commentaireManager;
 	
 	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -42,6 +47,7 @@ public class SiteController {
 			siteManager.create(site);
 			
 		}
+		
 		
 		
 		return new ModelAndView("redirect:/list");
@@ -88,8 +94,15 @@ public class SiteController {
 	@RequestMapping(value = "/view/{idsite}", method = RequestMethod.GET)
 	public ModelAndView view(@PathVariable("idsite") int idsite) {
 		ModelAndView model = new ModelAndView("site/viewSiteForm");
+		System.out.println("1");
 		Site site = siteManager.getById(idsite);
+		System.out.println("2");
+		List<Commentaire> commentaires= commentaireManager.findAllBySite(idsite);
+		System.out.println("3");
 		model.addObject("siteForm", site);	
+		System.out.println("4");
+		model.addObject("comments", commentaires);
+		System.out.println("5");
 		return model;
 	}
 	
