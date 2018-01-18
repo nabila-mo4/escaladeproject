@@ -84,7 +84,7 @@
                   				</div>
                   				<div class="row">
                   					<div class=" col-md-11 offset-md-1 text-right"><a href="<c:url value="/add"/>" class="btn btn-sm btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff; ">Creer un nouveau site</a>
-                    				<a href="<c:url value="/listsite"/>" class="btn btn-sm btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff; ">Voir la liste de tous les sites</a></div>
+                    				<a href="<c:url value="/list"/>" class="btn btn-sm btn-primary" style="color: #fff;background-color: #007bff;border-color: #007bff; ">Voir la liste de tous les sites</a></div>
                     				
                     			</div>
                   			</div>

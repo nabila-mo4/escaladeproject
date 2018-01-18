@@ -12,6 +12,7 @@ import org.myprojects.spring.escaladeproject.model.Commentaire;
 import org.myprojects.spring.escaladeproject.model.Site;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,25 +42,38 @@ public class SiteController {
 	public ModelAndView save(@ModelAttribute("siteForm") Site site){
 		if(site!=null && site.getIdsite()!=0) {
 			siteManager.update(site);
+			return new ModelAndView("redirect:/list?successe=true");
+			
 		}
 		else {
 			
 			siteManager.create(site);
+			return new ModelAndView("redirect:/list?success=true");
+			
 			
 		}
+	
 		
-		
-		
-		return new ModelAndView("redirect:/list");
-		
+				
 	}
 
 	
 
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView list() {
+	@RequestMapping(value = "/list",  method = RequestMethod.GET)
+	public ModelAndView list(@RequestParam(required=false) boolean success,
+			@RequestParam(required=false) boolean successe,
+			@RequestParam(required=false) boolean succes) {
 		ModelAndView model = new ModelAndView("site/sitePage");
 		List<Site> list= siteManager.list();
+		if(success) {
+			String msg="Le site est ajouté avec succès !";
+			model.addObject("message", msg);	}
+		if(successe) {
+			String msg="Le site est mis à jour avec succès !";
+			model.addObject("message", msg);	}
+		if(succes) {
+			String msg="Le site est supprimé avec succès !";
+			model.addObject("message", msg);	}
 		model.addObject("sites", list);	
 		return model;
 
@@ -80,7 +94,7 @@ public class SiteController {
 	@RequestMapping(value = "/delete/{idsite}", method = RequestMethod.GET)
 	public ModelAndView delete(@PathVariable("idsite") int idsite) {
 		siteManager.delete(idsite);
-		return new ModelAndView("redirect:/list");
+		return new ModelAndView("redirect:/list?succes=true");
 		
 	}
 	
@@ -94,15 +108,15 @@ public class SiteController {
 	@RequestMapping(value = "/view/{idsite}", method = RequestMethod.GET)
 	public ModelAndView view(@PathVariable("idsite") int idsite) {
 		ModelAndView model = new ModelAndView("site/viewSiteForm");
-		System.out.println("1");
+		
 		Site site = siteManager.getById(idsite);
-		System.out.println("2");
+		
 		List<Commentaire> commentaires= commentaireManager.findAllBySite(idsite);
-		System.out.println("3");
+		
 		model.addObject("siteForm", site);	
-		System.out.println("4");
+		
 		model.addObject("comments", commentaires);
-		System.out.println("5");
+		
 		return model;
 	}
 	
@@ -120,7 +134,7 @@ public class SiteController {
         criterias.put("criteria-min",siteMin);
         
         criterias.put("criteria-max",siteMax);
-		ModelAndView model = new ModelAndView("siterecherche");
+		ModelAndView model = new ModelAndView("site/siterecherche");
 		List<Site> list= siteManager.search(criterias);
 		model.addObject("sites", list);	
 		

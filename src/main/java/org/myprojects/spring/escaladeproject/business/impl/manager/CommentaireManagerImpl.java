@@ -24,6 +24,18 @@ public class CommentaireManagerImpl implements CommentaireManager{
 	public List<Commentaire> findAllBySite(int idsite) {
 		return commentaireDao.findAllBySite(idsite);
 	}
+	
+	public void delete(int idcommentaire) {
+		commentaireDao.delete(idcommentaire);
+	}
+	
+	public void update(Commentaire commentaire) {
+		commentaireDao.update(commentaire);
+	}
+	
+	public Commentaire getById(int idcommentaire) {
+		return commentaireDao.getById(idcommentaire);
+	}
 
 
 }

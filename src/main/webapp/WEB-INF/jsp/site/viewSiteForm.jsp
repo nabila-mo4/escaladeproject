@@ -15,6 +15,7 @@
 	
 	<link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	
 	
 	
@@ -104,6 +105,24 @@
 	font-size: 13px;
 	position: relative;
 	top: 1px;">hace 20 minutos</span>
+	<a href="<c:url value="/deletecommentaire/${listeComments.idcommentaire}"/>"><i class="fa fa-times" style="	float: right;
+	margin-left: 14px;
+	position: relative;
+	top: 2px;
+	color: #A6A6A6;
+	cursor: pointer;
+	-webkit-transition: color 0.3s ease;
+	-o-transition: color 0.3s ease;
+	transition: color 0.3s ease;"></i></a>
+	<a href="<c:url value="/updatecommentaire/${listeComments.idcommentaire}"/>"><i class="fa fa-pencil" style="	float: right;
+	margin-left: 14px;
+	position: relative;
+	top: 2px;
+	color: #A6A6A6;
+	cursor: pointer;
+	-webkit-transition: color 0.3s ease;
+	-o-transition: color 0.3s ease;
+	transition: color 0.3s ease;"></i></a>
 	</div>
 	
 	<div class="comment-content" style="background: #FFF;
@@ -126,7 +145,9 @@
 		
 	</div>
 	    </div>
-	  
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 	  
 </body>
 </html>
     

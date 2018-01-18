@@ -34,7 +34,7 @@ public class SecteurDaoImpl implements SecteurDao {
 	}
 
 	public Secteur getById(int idsecteur) {
-		String sql="SELECT * FROM secteur WHERE idsecteur=:idsecteur";
+		String sql="SELECT secteur.*, site.nom FROM secteur LEFT JOIN site ON secteur.idsite=site.idsite WHERE idsecteur=:idsecteur";
 		return namedParameterJdbcTemplate.queryForObject(sql, getSqlParameterByModel(new Secteur(idsecteur)), new SecteurMapper());
 	}
 

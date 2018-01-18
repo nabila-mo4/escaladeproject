@@ -77,7 +77,7 @@ public class SiteManagerImpl implements SiteManager {
     {
             List<Site> sitees= new ArrayList<Site>();
             String sqlStatement = "SELECT * FROM site WHERE";
-			List<String> sqlCriterias= new ArrayList<>();
+			List<String> sqlCriterias= new ArrayList<String>();
             List<Site> sites = new ArrayList<Site>();
             
             Enumeration enumCriteria = criterias.keys();

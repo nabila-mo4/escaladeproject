@@ -11,12 +11,12 @@ public interface CommentaireDao {
 	
 	void create( Commentaire commentaire);
     
-    //void delete(int idsecteur);
+    void delete(int idcommentaire);
     
-    //Secteur getById(int idsecteur);
+    Commentaire getById(int idcommentaire);
     
     List<Commentaire> findAllBySite(int idsite);
     
-    //void update(Secteur secteur);
+    void update(Commentaire commentaire);
 
 }

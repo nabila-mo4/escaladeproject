@@ -81,19 +81,20 @@ public class CommentaireController {
 
 		
 
-	}
+	}*/
 	
 	
-	@RequestMapping(value = "/updatesecteur/{idsecteur}", method = RequestMethod.GET)
-	public ModelAndView update(@PathVariable("idsecteur") int idsecteur
+	@RequestMapping(value = "/updatecommentaire/{idcommentaire}", method = RequestMethod.GET)
+	public ModelAndView update(@PathVariable("idcommentaire") int idcommentaire
+			
 			) {
-		ModelAndView model = new ModelAndView("secteur/secteurFormMAJ");
+		ModelAndView model = new ModelAndView("commentaire/commentaireFormMAJ");
 		
 		
-		Secteur secteur = secteurManager.getById(idsecteur);
+		Commentaire commentaire = commentaireManager.getById(idcommentaire);
 		
 		
-		model.addObject("secteurForm", secteur);
+		model.addObject("commentaireForm",commentaire);
 		List<Site> list= siteManager.list();
 	       
 		model.addObject("sites", list);
@@ -102,25 +103,11 @@ public class CommentaireController {
 	}
 	
 	
-	@RequestMapping(value = "/deletesecteur/{idsecteur}", method = RequestMethod.GET)
-	public ModelAndView delete(@PathVariable("idsecteur") int idsecteur) {
-		secteurManager.delete(idsecteur);
-		return new ModelAndView("redirect:/listsecteur");
+	@RequestMapping(value = "/deletecommentaire/{idcommentaire}", method = RequestMethod.GET)
+	public ModelAndView delete(@PathVariable("idcommentaire") int idcommentaire
+			) {
+		commentaireManager.delete(idcommentaire);
+		return new ModelAndView("redirect:/list");
 		
 	}
-*/
-	
-	
-	
-	@RequestMapping(value = "/listsite", method = RequestMethod.GET)
-	public ModelAndView list() {
-		ModelAndView model = new ModelAndView("site/sitePage");
-		//List<Site> list= siteManager.list();
-		//model.addObject("sites", list);	
-		return model;
-
-		
-
-	}
-
 }

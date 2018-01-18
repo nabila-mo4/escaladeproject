@@ -66,9 +66,10 @@ public class SecteurController {
 		ModelAndView model = new ModelAndView("secteur/secteurPage");
 		
 		List<Secteur> list= secteurManager.list();
+		List<Site> liste= siteManager.list();
 		
 		model.addObject("secteurs", list);	
-		
+		model.addObject("sites", liste);
 		
 		return model;
 

@@ -91,7 +91,7 @@ public class SiteDaoImpl implements SiteDao{
 
 
 		public void update(Site site) {
-			String sql="UPDATE site SET nom=:nom, emplacement=:emplacement, hauteur=:hauteur, type=:type WHERE idsite=:idsite";
+			String sql="UPDATE site SET nomsite=:nomsite, emplacement=:emplacement, hauteur=:hauteur, type=:type WHERE idsite=:idsite";
 			namedParameterJdbcTemplate.update(sql, getSqlParameterByModel(site));
 		}
 

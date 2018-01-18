@@ -13,9 +13,15 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'/>
     </head>
     
-   
     <c:import url="/menu.jsp"></c:import>
     <body style="padding-top: 100px;">
+    
+    <c:if test="${not empty message}">
+    <div class="alert alert-success"
+    style="margin-right: 382px; margin-left: 382px"> <c:out value="${message }"> </c:out>
+    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button></div>
+    </c:if>
+   
     
     <div class="container">
 	<div class="row">

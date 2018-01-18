@@ -32,8 +32,23 @@ public class CommentaireDaoImpl implements CommentaireDao{
 		
 		
 	}
-
 	
+	public void delete(int idcommentaire) {
+		String sql ="DELETE FROM commentaire WHERE idcommentaire=:idcommentaire";
+		namedParameterJdbcTemplate.update(sql, getSqlParameterByModel(new Commentaire(idcommentaire)));	
+		
+	}
+
+	public void update(Commentaire commentaire) {
+		String sql="UPDATE commentaire SET nomutilisateur=:nomutilisateur, contenu=:contenu,idsite=:idsite WHERE idcommentaire=:idcommentaire";
+		namedParameterJdbcTemplate.update(sql, getSqlParameterByModelone(commentaire));
+		
+	}
+
+	public Commentaire getById(int idcommentaire) {
+		String sql="SELECT * FROM commentaire WHERE idcommentaire=:idcommentaire";
+		return namedParameterJdbcTemplate.queryForObject(sql, getSqlParameterByModel(new Commentaire(idcommentaire)), new CommentaireMapper());
+	}
 	
 	public List<Commentaire> findAllBySite(int idsite){
 		
